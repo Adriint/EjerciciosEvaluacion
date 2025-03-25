@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Proyectos JS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mis Proyectos en JavaScript</h1>
+        <p>Selecciona un proyecto para ejecutarlo:</p>
+        <ul>
+            <li><button onclick="cargarProyecto(1)">Proyecto 1</button></li>
+            <li><button onclick="cargarProyecto(2)">Proyecto 2</button></li>
+            <li><button onclick="cargarProyecto(3)">Proyecto 3</button></li>
+            <li><button onclick="cargarProyecto(4)">Proyecto 4</button></li>
+            <li><button onclick="cargarProyecto(5)">Proyecto 5</button></li>
+            <li><button onclick="cargarProyecto(6)">Proyecto 6</button></li>
+            <li><button onclick="cargarProyecto(7)">Proyecto 7</button></li>
+            <li><button onclick="cargarProyecto(8)">Proyecto 8</button></li>
+            <li><button onclick="cargarProyecto(9)">Proyecto 9</button></li>
+            <li><button onclick="cargarProyecto(10)">Proyecto 10</button></li>
+        </ul>
+        <div id="output">Aquí se mostrará el resultado del proyecto seleccionado.</div>
+    </div>
+
+    <script>
+        function cargarProyecto(numero) {
+            let scripts = document.querySelectorAll("script[data-proyecto]");
+            scripts.forEach(script => script.remove());
+
+            let script = document.createElement("script");
+            script.src = `proyecto${numero}.js`;
+            script.type = "text/javascript";
+            script.dataset.proyecto = numero;
+            document.body.appendChild(script);
+        }
+    </script>
+</body>
+</html>
